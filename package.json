@@ -1,0 +1,35 @@
+{
+  "name": "lc-helper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "compile": "tsc .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xjq7/lc-helper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xjq7/lc-helper/issues"
+  },
+  "homepage": "https://github.com/xjq7/lc-helper#readme",
+  "dependencies": {
+    "axios": "^1.2.1",
+    "cookie": "^0.5.0",
+    "lodash": "^4.17.21",
+    "typescript": "^4.9.3"
+  },
+  "devDependencies": {
+    "@types/cookie": "^0.5.1",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.11.11",
+    "prettier": "^2.8.0",
+    "ts-node": "^10.9.1"
+  }
+}
