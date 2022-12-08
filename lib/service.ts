@@ -2,8 +2,8 @@ import request from './request';
 import { IResponse, Task, TaskType } from './type';
 
 interface LoginRequest {
-  account: string;
-  password: string;
+  account?: string;
+  password?: string;
 }
 
 interface LoginResponse {

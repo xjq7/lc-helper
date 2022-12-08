@@ -1,6 +1,7 @@
 import { AuthConfig, AuthCookie } from './config';
 import PriorityQueue from './PriorityQueue';
 import { Merge, Task, TaskStatus } from './type';
+import { authConfig, authCookie } from '../lib/config';
 
 type Run = (ctx: Ctx) => Promise<any>;
 
@@ -14,8 +15,8 @@ export type CtxTask = Merge<
 >;
 
 export interface Config {
-  account: string;
-  password: string;
+  account?: string;
+  password?: string;
 }
 
 export interface Ctx {
@@ -29,11 +30,17 @@ class Schedule {
   private runners;
   private ctx: Ctx;
 
-  constructor(props: { ctx: Ctx }) {
+  constructor(props?: { ctx: Ctx }) {
     this.runners = new PriorityQueue<{ runner: Run; priority: number }>({
       compare: (a, b) => a.priority > b.priority,
     });
-    this.ctx = props.ctx || {};
+    const { ctx } = props || {};
+    const { config = {} } = ctx || {};
+    this.ctx = { config, authCookie, authConfig };
+  }
+
+  setConfig(config: Config) {
+    this.ctx.config = Object.assign(this.ctx.config || {}, config);
   }
 
   addRunner(runner: Runner | Run) {

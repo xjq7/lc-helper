@@ -17,12 +17,7 @@ import { visitLeetBookPageDetail, getFreeLeetBook } from '../service/leetbook';
 
 import { createNote, delNoteById } from '../service/note';
 
-import {
-  LeetBook,
-  LeetBookBinaryTree,
-  TaskStatus,
-  TaskType,
-} from '../lib/type';
+import { LeetBook, LeetBookBinaryTree, TaskType } from '../lib/type';
 
 function canReward(fn: (ctx: Ctx, task: CtxTask) => any, taskType: TaskType) {
   return async function (ctx: Ctx) {
