@@ -75,18 +75,20 @@ lchl start 16618922034 123456
 
 ### 定时任务执行
 
-通过 Github Action 每天凌晨 00:10 分自动执行, 需要提前配置账号密码在 Action Secret 中
+    通过 Github Action 每天凌晨 00:10 分自动执行, 需要提前配置账号密码在 Action Secret 中
 
-1. fork 本项目
+    1. fork 本项目
 
-2. 配置账号密码
+    2. 配置账号密码
 
-创建 Github action Secret
+    创建 Github action Secret
 
-进入你 fork 的项目, 找到 Settings - Security - Secrets - Actions
+    进入你 fork 的项目, 找到 Settings - Security - Secrets - Actions
 
-然后 New repository secret
+    然后 New repository secret
 
-填写一个 Name 为 ACCOUNT 的 key, Secret 为你的账号
+    填写一个 Name 为 ACCOUNT 的 key, Secret 为你的账号
 
-填写一个 Name 为 PASSWORD 的 key, Secret 为你的密码
+    填写一个 Name 为 PASSWORD 的 key, Secret 为你的密码
+
+    在 Action 中手动触发验证
