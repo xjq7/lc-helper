@@ -16,24 +16,60 @@
 
 - 获取 2 本免费的 LeetBook 领取 3 积分
 
-## 安装
+## 开发
+
+### 环境安装
 
 ```sh
-npm install -g lchl
-# or
-yarn add global lchl
+# clone project
+git clone https://github.com/xjq7/lc-helper
+
+# cd folder
+cd lc-helper
+
+# 安装 pnpm, 已安装的话就跳过
+npm install pnpm -g
+
+# 依赖安装
+pnpm install
+
+```
+
+### 本地调试
+
+```sh
+pnpm dev <account> <password>
+```
+
+### 命令行工具调试
+
+```sh
+# 编译
+pnpm tsc
+
+# link 到全局
+npm link --force
+
+# 运行
+lchl start <account> <password>
 ```
 
 ## 使用
 
-### 命令行工具使用
-
 目前只支持账号密码登录
 
-```js
+### 命令行工具使用
+
+```sh
+# 全局安装
+npm install -g lchl
+# or
+yarn add global lchl
+
+# 运行
 lchl start <account> <password>
 
-// example
+# example
 lchl start 16618922034 123456
 ```
 
@@ -51,5 +87,6 @@ lchl start 16618922034 123456
 
 然后 New repository secret
 
-填写一个 Name 为 ACCOUNT 的 key, Secret 为你的用户账号
-填写一个 Name 为 PASSWORD 的 key, Secret 为你的用户密码
+填写一个 Name 为 ACCOUNT 的 key, Secret 为你的账号
+
+填写一个 Name 为 PASSWORD 的 key, Secret 为你的密码
