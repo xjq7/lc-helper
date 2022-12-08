@@ -75,7 +75,7 @@ lchl start 16618922034 123456
 
 ### 定时任务执行
 
-    通过 Github Action 每天凌晨 00:10 分自动执行, 需要提前配置账号密码在 Action Secret 中
+    通过 Github Action 每天凌晨 00:50 分自动执行, 需要提前配置账号密码在 Action Secret 中
 
     1. fork 本项目
 

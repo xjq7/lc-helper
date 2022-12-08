@@ -2,7 +2,7 @@ name: auto action runner
 run-name: ${{ github.actor }} is running
 on:
   schedule:
-    - cron: '10 0 * * *'
+    - cron: '50 16 * * *'
   workflow_dispatch:
 
 jobs:
