@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node index.ts",
-    "compile": "tsc"
+    "compile": "tsc",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
