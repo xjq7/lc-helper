@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "ts-node test.ts",
     "compile": "tsc",
-    "release": "standard-version"
+    "release": "tsc && standard-version"
   },
   "repository": {
     "type": "git",
