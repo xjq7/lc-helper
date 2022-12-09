@@ -14,5 +14,4 @@ export default async function (ctx: Ctx) {
   const parseToken = JSON.parse(token);
   const { access_token } = parseToken;
   ctx.authConfig.access_token = access_token;
-  console.log(`access_token: ${access_token}`);
 }
