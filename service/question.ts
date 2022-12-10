@@ -2,14 +2,40 @@ import request from '../lib/request';
 
 export async function getQuestionSolution(slug: string) {
   console.log(`查看题解中...`);
-  await request.post('/graphql', {
-    operationName: 'SolutionDetailArticle',
-    query:
-      'query SolutionDetailArticle($slug: String!, $orderBy: SolutionArticleOrderBy!) {\n  solutionArticle(slug: $slug, orderBy: $orderBy) {\n    __typename\n    prev {\n      __typename\n      uuid\n      slug\n      title\n    }\n    next {\n      __typename\n      uuid\n      slug\n      title\n    }\n    ...solutionArticleFragment\n    ipRegion\n  }\n}fragment solutionArticleFragment on SolutionArticleNode {\n  __typename\n  uuid\n  title\n  content\n  slug\n  createdAt\n  isMyFavorite\n  canEdit\n  isEditorsPick\n  byLeetcode\n  summary\n  thumbnail\n  reactionType\n  reactionsV2 {\n    __typename\n    count\n    reactionType\n  }\n  hasVideo\n  videosInfo {\n    __typename\n    coverUrl\n    duration\n    status\n    videoId\n  }\n  topic {\n    __typename\n    id\n    commentCount\n    title\n  }\n  contentAuthor {\n    __typename\n    avatar\n    username\n    realName\n    userSlug\n  }\n  author {\n    __typename\n    profile {\n      __typename\n      certificationLevel\n    }\n  }\n  tags {\n    __typename\n    slug\n    name\n    nameTranslated\n  }\n  question {\n    __typename\n    title\n    titleSlug\n    questionTitleSlug\n    questionTitle\n    translatedTitle\n    questionFrontendId\n  }\n  rewardEnabled\n  hitCount\n}',
-    variables: {
-      orderBy: 'DEFAULT',
-      slug,
-    },
-  });
+  console.log(
+    await request.post('/graphql', {
+      operationName: 'SolutionDetailSummary',
+      query:
+        'query SolutionDetailSummary($slug: String!) {\n  solutionArticle(slug: $slug) {\n    __typename\n    title\n    slug\n    author {\n      __typename\n      profile {\n        __typename\n        userAvatar\n        realName\n        userSlug\n      }\n      username\n    }\n    topic {\n      __typename\n      id\n      commentCount\n    }\n    hitCount\n  }\n}',
+      variables: { slug: 'qiao-yong-jszhong-de-mapdui-xiang-by-ber-qegl' },
+    })
+  );
+
   console.log(`查看题解成功! slug=${slug}`);
+}
+
+export async function hitQuestionResource(entityId: string) {
+  console.log(`上报查看题解事件...`);
+  console.log(
+    await request.post(
+      '/',
+      {
+        operationName: 'hitResource',
+        query:
+          'mutation hitResource($entityId: ID!, $entityType: EntityType!) {\n  hitResource(entityId: $entityId, entityType: $entityType) {\n    __typename\n    ok\n    error\n  }\n}',
+        variables: {
+          entityId,
+          entityType: 'ARTICLE',
+        },
+      },
+      {
+        headers: {
+          'X-APOLLO-OPERATION-TYPE': 'mutation',
+          'X-APOLLO-OPERATION-NAME': 'hitResource',
+        },
+      }
+    )
+  );
+
+  console.log(`上报查看题解事件成功! entityId=${entityId}`);
 }

@@ -21,3 +21,29 @@ export async function getFreeLeetBook(bookId: string) {
   });
   console.log(`获取 free LeetBook 成功! bookId=${bookId}`);
 }
+
+export async function leetBookDiscussUpStar() {
+  console.log(`点赞 LeetBook 讨论中...`);
+  await request.post('/graphql', {
+    operationName: 'qaAddAnswerReaction',
+    variables: {
+      articleId: 'ao81Ob',
+      reactionType: 'UPVOTE',
+    },
+    query:
+      'mutation qaAddAnswerReaction($articleId: ID!, $reactionType: ReactionTypeEnum!) {\n  columnsAddReaction(articleId: $articleId, reactionType: $reactionType) {\n    ok\n    article {\n      ... on QAAnswerNode {\n        uuid\n        reactionType\n        reactionsV2 {\n          reactionType\n          count\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n',
+  });
+  console.log(`点赞 LeetBook 讨论成功!`);
+}
+
+export async function leetBookDiscussDownStar() {
+  console.log(`取消点赞 LeetBook 讨论中...`);
+
+  await request.post('/graphql', {
+    operationName: 'qaRemoveAnswerReaction',
+    variables: { articleId: 'ao81Ob' },
+    query:
+      'mutation qaRemoveAnswerReaction($articleId: ID!) {\n  columnsRemoveReaction(articleId: $articleId) {\n    ok\n    article {\n      ... on QAAnswerNode {\n        uuid\n        reactionType\n        reactionsV2 {\n          reactionType\n          count\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n',
+  });
+  console.log(`取消点赞 LeetBook 讨论成功!`);
+}
