@@ -53,6 +53,8 @@ export enum LeetBookBinaryTree {
 export enum LeetBook {
   arrayAndString = 'z71v',
   binaryTree = 'fkl1',
+  trie = 'xpjov',
+  binarySearchTree = 'xxu05',
 }
 
 export type Merge<T> = {

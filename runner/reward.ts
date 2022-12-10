@@ -122,9 +122,12 @@ export const obtainGetTwoFreeLeetBook = canReward(async function (
   task: CtxTask
 ) {
   await Promise.all(
-    [LeetBook.arrayAndString, LeetBook.binaryTree].map((bookId) =>
-      getFreeLeetBook(bookId)
-    )
+    [
+      LeetBook.arrayAndString,
+      LeetBook.binaryTree,
+      LeetBook.trie,
+      LeetBook.binarySearchTree,
+    ].map((bookId) => getFreeLeetBook(bookId))
   );
 
   await getTwoFreeLeetBookRewards();
