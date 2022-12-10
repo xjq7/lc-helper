@@ -16,7 +16,6 @@ import {
 import {
   visitLeetBookPageDetail,
   getFreeLeetBook,
-  StarOperation,
   leetBookDiscussUpStar,
   leetBookDiscussDownStar,
 } from '../service/leetbook';
