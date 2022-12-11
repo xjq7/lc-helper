@@ -22,7 +22,12 @@ import {
 
 import { createNote, delNoteById } from '../service/note';
 
-import { LeetBook, LeetBookBinaryTree, TaskType } from '../lib/type';
+import {
+  LeetBook,
+  LeetBookArrayAndString,
+  LeetBookBinaryTree,
+  TaskType,
+} from '../lib/type';
 
 function canReward(fn: (ctx: Ctx, task: CtxTask) => any, taskType: TaskType) {
   return async function (ctx: Ctx) {
@@ -65,19 +70,26 @@ export const obtainReadSolutionReward = canReward(async function (ctx: Ctx) {
   await readSolutionRewards();
 }, TaskType.readSolution);
 
-export const obtainReadThreeLeetBookRewards = canReward(async function (
-  ctx: Ctx
-) {
-  await Promise.all(
-    [
-      LeetBookBinaryTree.xebrb2,
-      LeetBookBinaryTree.xecaj6,
-      LeetBookBinaryTree.xeywh5,
-    ].map((pageId) => visitLeetBookPageDetail(pageId))
-  );
-  await readThreeLeetBookRewards();
-},
-TaskType.readThreeLeetBook);
+export const obtainReadThreeLeetBookRewards = async function (ctx: Ctx) {
+  try {
+    await Promise.all(
+      [
+        LeetBookBinaryTree.xebrb2,
+        LeetBookBinaryTree.xecaj6,
+        LeetBookBinaryTree.xeywh5,
+        LeetBookArrayAndString.ciekh,
+        LeetBookArrayAndString.clpgd,
+        LeetBookArrayAndString.cuxq3,
+        LeetBookArrayAndString.y1nke,
+        LeetBookArrayAndString.y4dgi,
+        LeetBookArrayAndString.yf47s,
+      ].map((pageId) => visitLeetBookPageDetail(pageId))
+    );
+    await readThreeLeetBookRewards();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const obtainCreateNoteRewards = canReward(async function (
   ctx: Ctx,
@@ -116,33 +128,32 @@ export const obtainVisitProgress = canReward(async function (
 },
 TaskType.viewProgress);
 
-export const obtainGetTwoFreeLeetBook = canReward(async function (
-  ctx: Ctx,
-  task: CtxTask
-) {
-  await Promise.all(
-    [
-      LeetBook.arrayAndString,
-      LeetBook.binaryTree,
-      LeetBook.trie,
-      LeetBook.binarySearchTree,
-    ].map((bookId) => getFreeLeetBook(bookId))
-  );
-
-  await getTwoFreeLeetBookRewards();
-},
-TaskType.getTwoFreeLeetBook);
-
-export const obtainStarLeetBookComment = canReward(async function (
-  ctx: Ctx,
-  task: CtxTask
-) {
-  await leetBookDiscussUpStar();
+export const obtainGetTwoFreeLeetBook = async function (ctx: Ctx) {
   try {
-    await starLeetBookComment();
+    await Promise.all(
+      [
+        LeetBook.arrayAndString,
+        LeetBook.binaryTree,
+        LeetBook.trie,
+        LeetBook.binarySearchTree,
+      ].map((bookId) => getFreeLeetBook(bookId))
+    );
+    await getTwoFreeLeetBookRewards();
   } catch (error) {
     console.log(error);
   }
-  await leetBookDiscussDownStar();
-},
-TaskType.starLeetBookComment);
+};
+
+export const obtainStarLeetBookComment = async function (ctx: Ctx) {
+  try {
+    await leetBookDiscussUpStar();
+    try {
+      await starLeetBookComment();
+    } catch (error) {
+      console.log(error);
+    }
+    await leetBookDiscussDownStar();
+  } catch (error) {
+    console.log(error);
+  }
+};
