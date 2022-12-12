@@ -64,7 +64,7 @@ lchl start <account> <password>
 # 全局安装
 npm install -g lchl
 # or
-yarn add global lchl
+yarn global add lchl
 
 # 运行
 lchl start <account> <password>
