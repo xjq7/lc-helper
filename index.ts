@@ -23,7 +23,7 @@ const schedule = new Schedule();
 schedule.addRunner({ runner: login, priority: 999 });
 schedule.addRunner({ runner: injectTaskList, priority: 998 });
 schedule.addRunner({ runner: obtainDailyLoginReward, priority: 997 });
-schedule.addRunner(obtainReadSolutionReward);
+// schedule.addRunner(obtainReadSolutionReward);
 schedule.addRunner(obtainCreateNoteRewards);
 schedule.addRunner(obtainVisitProgress);
 schedule.addRunner(obtainStarLeetBookComment);
