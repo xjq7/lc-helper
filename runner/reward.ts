@@ -77,12 +77,8 @@ export const obtainReadThreeLeetBookRewards = async function (ctx: Ctx) {
         LeetBookBinaryTree.xebrb2,
         LeetBookBinaryTree.xecaj6,
         LeetBookBinaryTree.xeywh5,
-        LeetBookArrayAndString.ciekh,
-        LeetBookArrayAndString.clpgd,
-        LeetBookArrayAndString.cuxq3,
         LeetBookArrayAndString.y1nke,
         LeetBookArrayAndString.y4dgi,
-        LeetBookArrayAndString.yf47s,
       ].map((pageId) => visitLeetBookPageDetail(pageId))
     );
     await readThreeLeetBookRewards();

@@ -39,12 +39,8 @@ export enum LeetBookQueueStack {
 }
 
 export enum LeetBookArrayAndString {
-  clpgd = 'clpgd', // 旋转矩阵
-  ciekh = 'ciekh',
-  cuxq3 = 'cuxq3',
   y4dgi = 'y4dgi', // 数组简介
   y1nke = 'y1nke', // 二维数组简介
-  yf47s = 'yf47s', // 寻找数组的中心索引
 }
 
 export enum LeetBookBinaryTree {
