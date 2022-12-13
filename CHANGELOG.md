@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/xjq7/lc-helper/compare/v1.0.3...v1.1.1) (2022-12-13)
+
+
+### Features
+
+* 新增 点赞 LeetBook 讨论任务 ([1bbf50b](https://github.com/xjq7/lc-helper/commit/1bbf50bad2202ca000deb16a90503a8aa7505a4d))
+
+
+### Bug Fixes
+
+* 获取 LeetBook 新增 两本 ([c2af9dd](https://github.com/xjq7/lc-helper/commit/c2af9dd0310e42ebedcc1b687e7d43f095c286d6))
+* 清除报错的 leetBook章节查看事件 ([e855167](https://github.com/xjq7/lc-helper/commit/e8551671ab220bfe69f5a0fc19c47b6b83ff0020))
+* LeetBook 查看事件新增章节容错 ([eadafc7](https://github.com/xjq7/lc-helper/commit/eadafc74bcca439843eb06bf50822ef50973b20b))
+
 ## 1.1.0 (2022-12-10)
 
 
