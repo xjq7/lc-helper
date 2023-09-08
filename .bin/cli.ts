@@ -5,11 +5,9 @@ import schedule from '../index';
 
 program.version(`v${packageJson.version}`, '-v,--version');
 
-program
-  .command('start <account> <password>')
-  .action((account, password, _program) => {
-    schedule.setConfig({ account, password });
-    schedule.run();
-  });
+program.command('start <session>').action((session, _program) => {
+  schedule.setConfig({ session });
+  schedule.run();
+});
 
 program.parse();

@@ -1,3 +1,21 @@
+## 2023-09-08 更新
+
+取消了账号密码登录方式，改用 cookie 登录
+
+所以需要各位在网页上去获取 session 设置到 action 变量中
+
+新增一个名为 SESSION 的变量
+
+![Alt text](1694178477619.png)
+
+值为力扣站点下的 LEETCODE_SESSION 这个 cookie
+
+![Alt text](1694178601775.png)
+
+设置完成之后可以手动执行一下 试试效果
+
+cookie 失效之后需要重新设置
+
 ## 力扣辅助
 
 自动完成每日任务领取积分
@@ -40,7 +58,7 @@ pnpm install
 ### 本地调试
 
 ```sh
-pnpm dev <account> <password>
+pnpm dev <session>
 ```
 
 ### 命令行工具调试

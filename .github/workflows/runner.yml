@@ -28,4 +28,4 @@ jobs:
         run: pnpm install
 
       - name: run
-        run: pnpm dev ${{ secrets.ACCOUNT }} ${{ secrets.PASSWORD }}
+        run: pnpm dev ${{ secrets.SESSION }}

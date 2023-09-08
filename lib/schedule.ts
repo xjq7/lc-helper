@@ -1,7 +1,7 @@
-import { AuthConfig, AuthCookie } from './config';
+import { AuthConfig } from './config';
 import PriorityQueue from './PriorityQueue';
 import { Merge, Task, TaskStatus } from './type';
-import { authConfig, authCookie } from '../lib/config';
+import { authConfig } from '../lib/config';
 
 type Run = (ctx: Ctx) => Promise<any>;
 
@@ -15,12 +15,10 @@ export type CtxTask = Merge<
 >;
 
 export interface Config {
-  account?: string;
-  password?: string;
+  session?: string;
 }
 
 export interface Ctx {
-  authCookie: AuthCookie;
   authConfig: AuthConfig;
   task?: CtxTask[];
   config: Config;
@@ -36,7 +34,7 @@ class Schedule {
     });
     const { ctx } = props || {};
     const { config = {} } = ctx || {};
-    this.ctx = { config, authCookie, authConfig };
+    this.ctx = { config, authConfig };
   }
 
   setConfig(config: Config) {

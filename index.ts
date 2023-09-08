@@ -1,5 +1,4 @@
 import Schedule from './lib/schedule';
-import login from './runner/login';
 import {
   obtainDailyLoginReward,
   obtainReadSolutionReward,
@@ -20,7 +19,6 @@ process.on('unhandledRejection', (error) => {
 });
 
 const schedule = new Schedule();
-schedule.addRunner({ runner: login, priority: 999 });
 schedule.addRunner({ runner: injectTaskList, priority: 998 });
 schedule.addRunner({ runner: obtainDailyLoginReward, priority: 997 });
 // schedule.addRunner(obtainReadSolutionReward);
