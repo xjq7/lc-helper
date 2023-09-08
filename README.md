@@ -71,7 +71,7 @@ pnpm tsc
 npm link --force
 
 # 运行
-lchl start <account> <password>
+lchl start <session>
 ```
 
 ## 使用
@@ -87,10 +87,10 @@ npm install -g lchl
 yarn global add lchl
 
 # 运行
-lchl start <account> <password>
+lchl start <session>
 
 # example
-lchl start 16618922034 123456
+lchl start 你的 session cookie
 ```
 
 ### 定时任务执行
@@ -111,13 +111,9 @@ lchl start 16618922034 123456
 
 <img src="https://image.xjq.icu/2022/12/9/1670551587314_%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16705515849451.png" />
 
-填写一个 Name 为 ACCOUNT 的 key, Secret 为你的账号
+填写一个 Name 为 SESSION 的 key, Secret 为你的 session cookie, session cookie 的获取方式请看 README 顶部
 
-<img src="https://image.xjq.icu/2022/12/9/1670551562380_%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16705515617312.png" />
-
-填写一个 Name 为 PASSWORD 的 key, Secret 为你的密码
-
-<img src="https://image.xjq.icu/2022/12/9/1670551635271_%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16705516315538.png" />
+![Alt text](1694179190029.png)
 
 3. 在 Action 中手动触发验证
 
