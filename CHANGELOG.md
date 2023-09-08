@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.3](https://github.com/xjq7/lc-helper/compare/v1.1.2...v1.1.3) (2023-09-08)
+
+
+### Bug Fixes
+
+* 账号密码登录改为 cookie 设置 ([8153819](https://github.com/xjq7/lc-helper/commit/815381967def14591a9ee99d70bf11ab5b331c6c))
+
 ### [1.1.2](https://github.com/xjq7/lc-helper/compare/v1.1.1...v1.1.2) (2022-12-13)
 
 ### [1.1.1](https://github.com/xjq7/lc-helper/compare/v1.0.3...v1.1.1) (2022-12-13)
