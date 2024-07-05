@@ -1,20 +1,36 @@
-## 2023-09-08 更新
+## 2024-07-05 更新
 
-取消了账号密码登录方式，改用 cookie 登录
+力扣限制又严格了一些, 需要抓包 App 获取两个认证 token
 
-所以需要各位在网页上去获取 session 设置到 action 变量中
+所以需要各位在 App 上去获取 cookie 跟 authorization 信息设置到 action 变量中
 
-新增一个名为 SESSION 的变量
+IOS 用户推荐 软件 Stream
+
+调好抓包软件后, 开始抓包
+
+![alt text](ae22750779a0525daaf30a78450c2b8.jpg)
+
+登录 App 之后进入任务中心
+
+![alt text](e3bd55b5ff2ec265dfbfc9a96e566a6.jpg)
+
+随便找到一个 graphql 接口
+
+![alt text](9ae86673a9906519dcfeae5527ded17.jpg)
+
+找到 cookie 跟 Authorization 两个请求头
+
+![alt text](image.png)
+
+新增一个名为 SESSION 的变量, 值使用 cookie 内容
+
+再新增一个名为 AUTHORIZATION 的变量, 值使用 cookie 内容
 
 ![Alt text](1694178477619.png)
 
-值为力扣站点下的 LEETCODE_SESSION 这个 cookie
-
-![Alt text](1694178601775.png)
-
 设置完成之后可以手动执行一下 试试效果
 
-cookie 失效之后需要重新设置
+cookie 跟 Authorization 失效之后需要重新设置
 
 ## 力扣辅助
 
@@ -58,7 +74,7 @@ pnpm install
 ### 本地调试
 
 ```sh
-pnpm dev <session>
+pnpm dev '<session>' '<authorization>'
 ```
 
 ### 命令行工具调试
@@ -71,7 +87,7 @@ pnpm tsc
 npm link --force
 
 # 运行
-lchl start <session>
+lchl start '<session>' '<authorization>'
 ```
 
 ## 使用
@@ -87,10 +103,10 @@ npm install -g lchl
 yarn global add lchl
 
 # 运行
-lchl start <session>
+lchl start '<session>' '<authorization>'
 
 # example
-lchl start 你的 session cookie
+lchl start '<你的 session cookie>' '<你的 authorization>'
 ```
 
 ### 定时任务执行

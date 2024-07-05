@@ -11,7 +11,7 @@ export enum TaskType {
 export interface IResponse<T = any> {
   data: T;
   code: number;
-  errors: string;
+  errors: any[];
 }
 
 export enum TaskStatus {

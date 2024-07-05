@@ -15,17 +15,17 @@ jobs:
       - name: Node
         uses: actions/setup-node@v4.0.2
         with:
-          node-version: 16
+          node-version: 18
 
-      - name: Install pnpm
+      - name: Install pnpm n
         uses: pnpm/action-setup@v4.0.0
         id: pnpm-install
         with:
-          version: 7
+          version: 8
           run_install: false
 
       - name: Install dependencies
         run: pnpm install
 
       - name: run
-        run: pnpm dev ${{ secrets.SESSION }}
+        run: pnpm dev '${{ secrets.SESSION }}' '${{ secrets.AUTHORIZATION }}'

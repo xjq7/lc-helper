@@ -32,6 +32,7 @@ import {
 function canReward(fn: (ctx: Ctx, task: CtxTask) => any, taskType: TaskType) {
   return async function (ctx: Ctx) {
     const tasks = ctx.task;
+
     const task = tasks?.find((o) => o.id === taskType);
     if (!task) {
       console.log(`未下发任务: ${taskType}`);
@@ -91,7 +92,6 @@ export const obtainCreateNoteRewards = canReward(async function (
   ctx: Ctx,
   task: CtxTask
 ) {
-  // const
   const questionId = '1900',
     content = 'lc-helper';
   const createNoteRes = await createNote({

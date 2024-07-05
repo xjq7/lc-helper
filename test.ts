@@ -1,5 +1,6 @@
 import schedule from './index';
-const [session] = process.argv.slice(2);
+import { Config } from './lib/config';
+const [session, authorization] = process.argv.slice(2);
 
-schedule.setConfig({ session });
+Config.set({ session, authorization });
 schedule.run();

@@ -20,11 +20,11 @@ process.on('unhandledRejection', (error) => {
 
 const schedule = new Schedule();
 schedule.addRunner({ runner: injectTaskList, priority: 998 });
-schedule.addRunner({ runner: obtainDailyLoginReward, priority: 997 });
 // schedule.addRunner(obtainReadSolutionReward);
 schedule.addRunner(obtainCreateNoteRewards);
 schedule.addRunner(obtainVisitProgress);
 schedule.addRunner(obtainStarLeetBookComment);
+schedule.addRunner(obtainDailyLoginReward);
 schedule.addRunner({ runner: obtainGetTwoFreeLeetBook, priority: 101 });
 schedule.addRunner({ runner: obtainReadThreeLeetBookRewards, priority: 99 });
 
