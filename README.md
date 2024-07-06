@@ -24,7 +24,7 @@ IOS 用户推荐 软件 Stream
 
 新增一个名为 SESSION 的变量, 值使用 cookie 内容
 
-再新增一个名为 AUTHORIZATION 的变量, 值使用 cookie 内容
+再新增一个名为 AUTHORIZATION 的变量, 值使用 Authorization 头的内容
 
 ![Alt text](1694178477619.png)
 
