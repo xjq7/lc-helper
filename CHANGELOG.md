@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/xjq7/lc-helper/compare/v1.1.3...v1.3.0) (2024-07-06)
+
+
+### Features
+
+* 重新对接认证信息 ([eb426d9](https://github.com/xjq7/lc-helper/commit/eb426d9cfcca466921be1aa6465c3df4934153a5))
+
+
+### Bug Fixes
+
+* 每日登录 id 任务变更 ([926a168](https://github.com/xjq7/lc-helper/commit/926a1689b30dbdf5045d41a6c2f0850cd31b4604))
+
 ## [1.2.0](https://github.com/xjq7/lc-helper/compare/v1.1.3...v1.2.0) (2024-07-05)
 
 ### Features
